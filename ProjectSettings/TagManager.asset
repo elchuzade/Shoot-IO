@@ -7,6 +7,8 @@ TagManager:
   - Bot
   - Ball
   - Barrier
+  - Weapon
+  - Body
   layers:
   - Default
   - TransparentFX

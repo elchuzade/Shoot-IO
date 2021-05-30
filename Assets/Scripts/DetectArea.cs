@@ -21,15 +21,16 @@ public class DetectArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Ball")
+        if (other.gameObject.tag == "Body")
         {
+            Debug.Log(other.gameObject.transform.position);
             lockedTargets.Add(other.gameObject);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Ball")
+        if (other.gameObject.tag == "Body")
         {
             lockedTargets.Remove(other.gameObject);
         }
@@ -39,6 +40,7 @@ public class DetectArea : MonoBehaviour
     {
         GameObject closestTarget = lockedTargets[0];
         float targetDistance = Vector3.Distance(closestTarget.transform.position, transform.position);
+
         for (int i = 0; i < lockedTargets.Count; i++)
         {
             if (Vector3.Distance(lockedTargets[i].transform.position, transform.position) < targetDistance)
@@ -46,6 +48,7 @@ public class DetectArea : MonoBehaviour
                 targetDistance = Vector3.Distance(lockedTargets[i].transform.position, transform.position);
             }
         }
+
         return closestTarget;
     }
 }

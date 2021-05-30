@@ -5,13 +5,30 @@ public class Weapon : MonoBehaviour
     public bool targetLocked;
     public GameObject lockedTarget;
 
-    [SerializeField] Transform weaponTip;
-    [SerializeField] GameObject bullet;
+    Transform barrelTip;
+    GameObject bullet;
     // Where bullet case will fly out
-    [SerializeField] GameObject bolt;
 
-    float fireRate = 0.1f;
+    float fireRate;
     float time = 0;
+
+    [SerializeField] GameObject rifle;
+    [SerializeField] GameObject sniper;
+    [SerializeField] Transform rightArm;
+
+    GameObject myWeapon;
+
+    void Start()
+    {
+        myWeapon = Instantiate(rifle, rightArm.position, Quaternion.identity);
+        myWeapon.transform.SetParent(rightArm);
+        myWeapon.transform.localScale = Vector3.one;
+
+        fireRate = myWeapon.GetComponent<WeaponParts>().baseFireRate;
+
+        barrelTip = myWeapon.GetComponent<WeaponParts>().barrelTip;
+        bullet = myWeapon.GetComponent<WeaponParts>().bullet;
+    }
 
     #region Public Methods
     // Repetitive function gets called inside update method
@@ -23,16 +40,21 @@ public class Weapon : MonoBehaviour
             Vector3 directionToClosestEnemy = lockedTarget.transform.position - transform.position;
             float angle = Mathf.Atan2(directionToClosestEnemy.z, directionToClosestEnemy.x) * Mathf.Rad2Deg;
 
-            transform.parent.localRotation = Quaternion.Euler(0, 90 - angle, 0);
+            transform.localRotation = Quaternion.Euler(0, 90 - angle, 0);
 
             Shoot();
         } else
         {
-            bolt.SetActive(false);
             // Follow mouse direction
             float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
 
-            transform.parent.localRotation = Quaternion.Euler(0, 90 - angle, 0);
+            if (angle == 0)
+            {
+                transform.localRotation = Quaternion.Euler(0, angle, 0);
+            } else
+            {
+                transform.localRotation = Quaternion.Euler(0, 90 - angle, 0);
+            }
         }
     }
     #endregion
@@ -43,8 +65,8 @@ public class Weapon : MonoBehaviour
     {
         if (time >= fireRate)
         {
-            bolt.SetActive(true);
-            Instantiate(bullet, weaponTip.position, weaponTip.rotation);
+            myWeapon.GetComponent<WeaponParts>().RunFireParticles();
+            Instantiate(bullet, barrelTip.position, barrelTip.rotation);
             time = 0;
         } else
         {

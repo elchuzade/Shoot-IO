@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
 
     IEnumerator Disappear()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
 
         Destroy(gameObject);
     }

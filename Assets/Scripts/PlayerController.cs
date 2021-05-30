@@ -14,7 +14,6 @@ public class PlayerController : MonoBehaviour
         ball.Move(ballDirection);
 
         Vector3 weaponDirection = Vector3.forward * floatingJoystick.Vertical + Vector3.right * floatingJoystick.Horizontal;
-
         weapon.Turn(weaponDirection);
     }
 }
