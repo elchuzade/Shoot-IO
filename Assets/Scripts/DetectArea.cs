@@ -23,7 +23,6 @@ public class DetectArea : MonoBehaviour
     {
         if (other.gameObject.tag == "Body")
         {
-            Debug.Log(other.gameObject.transform.position);
             lockedTargets.Add(other.gameObject);
         }
     }

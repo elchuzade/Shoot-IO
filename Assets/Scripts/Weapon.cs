@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
     // Where bullet case will fly out
 
     float fireRate;
-    float time = 0;
+    float shootTimer = 0;
 
     [SerializeField] GameObject rifle;
     [SerializeField] GameObject sniper;
@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        myWeapon = Instantiate(sniper, rightArm.position, Quaternion.identity);
+        myWeapon = Instantiate(rifle, rightArm.position, Quaternion.identity);
         myWeapon.transform.SetParent(rightArm);
         myWeapon.transform.localScale = Vector3.one;
 
@@ -61,14 +61,14 @@ public class Weapon : MonoBehaviour
     // Repetitive function gets called inside update method
     void Shoot()
     {
-        if (time >= fireRate)
+        if (shootTimer >= fireRate)
         {
             myWeapon.GetComponent<WeaponParts>().RunFireParticles();
             Instantiate(bullet, barrelTip.position, barrelTip.rotation);
-            time = 0;
+            shootTimer = 0;
         } else
         {
-            time += Time.deltaTime;
+            shootTimer += Time.deltaTime;
         }
     }
     #endregion

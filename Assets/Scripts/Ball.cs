@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,27 +9,29 @@ public class Ball : MonoBehaviour
 
     public List<GameObject> wearables = new List<GameObject>();
 
-    void Start()
-    {
-        StartCoroutine(IdleAnimation());    
-    }
-
     #region Public Methods
     public void Move(Vector3 direction)
     {
         transform.position += direction * speed * Time.deltaTime;
     }
-    #endregion
 
-    #region Private Methods
-    IEnumerator IdleAnimation()
+    public void RunIdleAnimation()
     {
-        yield return new WaitForSeconds(2);
-
-        for(int i = 0; i < wearables.Count; i++)
+        for (int i = 0; i < wearables.Count; i++)
         {
             wearables[i].GetComponent<WearableItem>().RunIdleAnimation();
         }
     }
+
+    public void StopIdleAnimation()
+    {
+        for (int i = 0; i < wearables.Count; i++)
+        {
+            wearables[i].GetComponent<WearableItem>().StopIdleAnimation();
+        }
+    }
+    #endregion
+
+    #region Private Methods
     #endregion
 }

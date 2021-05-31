@@ -10,30 +10,59 @@ public class WearableItem : MonoBehaviour
     // Each particle would end up having its own time to run
     public GameObject effectParticles;
 
-
+    #region Public Methods
     public void RunIdleAnimation()
     {
         if (itemName == Wearables.Cigar)
         {
             // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
+            Debug.Log("trigger");
             transform.Find("Zippo").GetComponent<AnimationTrigger>().Trigger("Appear");
-            StartCoroutine(StartParticles());
+            float startDelay = 2;
+            float stopDelay = 4;
+            StartParticles(startDelay);
+            StopParticles(stopDelay);
         }
     }
 
-    IEnumerator StartParticles()
+    public void StopIdleAnimation()
     {
-        yield return new WaitForSeconds(2);
+        if (itemName == Wearables.Cigar)
+        {
+            // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
+            Animator appearAnimator = transform.Find("Zippo").GetComponent<Animator>();
+            appearAnimator.Rebind();
 
-        effectParticles.SetActive(true);
+            StopParticles(0);
+        }
+    }
+    #endregion
 
-        StartCoroutine(StopParticles());
+    #region Private Methods
+    void StartParticles(float delay)
+    {
+        StartCoroutine(StartParticlesDelay(delay));
     }
 
-    IEnumerator StopParticles()
+    void StopParticles(float delay)
     {
-        yield return new WaitForSeconds(2);
+        StartCoroutine(StopParticlesDelay(delay));
+    }
+    #endregion
+
+    #region Coroutines
+    IEnumerator StartParticlesDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        effectParticles.SetActive(true);
+    }
+
+    IEnumerator StopParticlesDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
         effectParticles.SetActive(false);
     }
+    #endregion
 }
