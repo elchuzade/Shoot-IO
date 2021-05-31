@@ -19,4 +19,6 @@ public class GlobalVariables : MonoBehaviour
     public enum BallTypes { Common, Uncommon, Rare, Legendary, Special };
 
     public enum Weapons { Rifle, Sniper, EpicSniper };
+
+    public enum Wearables { Cigar, Mask, TennisHat };
 }

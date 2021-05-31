@@ -20,7 +20,7 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        myWeapon = Instantiate(rifle, rightArm.position, Quaternion.identity);
+        myWeapon = Instantiate(sniper, rightArm.position, Quaternion.identity);
         myWeapon.transform.SetParent(rightArm);
         myWeapon.transform.localScale = Vector3.one;
 
@@ -40,7 +40,7 @@ public class Weapon : MonoBehaviour
             Vector3 directionToClosestEnemy = lockedTarget.transform.position - transform.position;
             float angle = Mathf.Atan2(directionToClosestEnemy.z, directionToClosestEnemy.x) * Mathf.Rad2Deg;
 
-            transform.localRotation = Quaternion.Euler(0, 90 - angle, 0);
+            transform.parent.localRotation = Quaternion.Euler(0, 90 - angle, 0);
 
             Shoot();
         } else
@@ -48,12 +48,10 @@ public class Weapon : MonoBehaviour
             // Follow mouse direction
             float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
 
-            if (angle == 0)
+            if (angle != 0)
             {
-                transform.localRotation = Quaternion.Euler(0, angle, 0);
-            } else
-            {
-                transform.localRotation = Quaternion.Euler(0, 90 - angle, 0);
+                // Joystick is moving
+                transform.parent.localRotation = Quaternion.Euler(0, 90 - angle, 0);
             }
         }
     }
