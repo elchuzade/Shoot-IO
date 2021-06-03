@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b9cfd6f06fe5470b926d2ea62089cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponName: 0
+  weaponName: 3
   baseFireRate: 0.15
   barrelTip: {fileID: 8126679509075824226}
   bullet: {fileID: 5749097891532107479, guid: 8be010a249a7e4e8485b839eb4fcf184, type: 3}

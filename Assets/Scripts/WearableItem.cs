@@ -16,7 +16,6 @@ public class WearableItem : MonoBehaviour
         if (itemName == Wearables.Cigar)
         {
             // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
-            Debug.Log("trigger");
             transform.Find("Zippo").GetComponent<AnimationTrigger>().Trigger("Appear");
             float startDelay = 2;
             float stopDelay = 4;

@@ -18,7 +18,39 @@ public class GlobalVariables : MonoBehaviour
 
     public enum BallTypes { Common, Uncommon, Rare, Legendary, Special };
 
-    public enum Weapons { Rifle, Sniper, EpicSniper };
+    public enum Weapons {
+        Glock,
+        DesertEagle,
+        Revolver,
+        Rifle,
+        Sniper,
+        EpicSniper
+    };
 
-    public enum Wearables { Cigar, Mask, TennisHat };
+    public enum Wearables {
+        Bandana,
+        BikerHelmet,
+        Binocular,
+        Cap,
+        Chefhat,
+        Cigar,
+        CowboyHat,
+        EyePatch,
+        FootballHelmet,
+        MagnifyingGlass,
+        MilitaryHelmet,
+        MinerHelmet,
+        OfficerHat,
+        RapCap,
+        RopeCap,
+        RussianHat,
+        SnorkleGlasses,
+        SnorkleTube,
+        SportsBand,
+        SportsGlasses,
+        StarGlasses,
+        SurgeryMask,
+        TennisHat,
+        VikingHelmet
+    };
 }

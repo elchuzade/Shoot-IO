@@ -14,13 +14,16 @@ public class Weapon : MonoBehaviour
 
     [SerializeField] GameObject rifle;
     [SerializeField] GameObject sniper;
+    [SerializeField] GameObject glock;
+    [SerializeField] GameObject revolver;
+    [SerializeField] GameObject desertEagle;
     [SerializeField] Transform rightArm;
 
     GameObject myWeapon;
 
     void Start()
     {
-        myWeapon = Instantiate(rifle, rightArm.position, Quaternion.identity);
+        myWeapon = Instantiate(revolver, rightArm.position, Quaternion.identity);
         myWeapon.transform.SetParent(rightArm);
         myWeapon.transform.localScale = Vector3.one;
 
