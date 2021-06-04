@@ -12,18 +12,26 @@ public class Weapon : MonoBehaviour
     float fireRate;
     float shootTimer = 0;
 
-    [SerializeField] GameObject rifle;
-    [SerializeField] GameObject sniper;
     [SerializeField] GameObject glock;
     [SerializeField] GameObject revolver;
     [SerializeField] GameObject desertEagle;
+    [SerializeField] GameObject mac10;
+    [SerializeField] GameObject usp;
+
+    [SerializeField] GameObject ak47;
+    [SerializeField] GameObject m4a1;
+    [SerializeField] GameObject m3super90;
+    [SerializeField] GameObject famas;
+    [SerializeField] GameObject fnp90;
+    [SerializeField] GameObject steyrAug;
+
     [SerializeField] Transform rightArm;
 
     GameObject myWeapon;
 
     void Start()
     {
-        myWeapon = Instantiate(revolver, rightArm.position, Quaternion.identity);
+        myWeapon = Instantiate(mac10, rightArm.position, Quaternion.identity);
         myWeapon.transform.SetParent(rightArm);
         myWeapon.transform.localScale = Vector3.one;
 
