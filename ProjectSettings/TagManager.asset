@@ -9,6 +9,9 @@ TagManager:
   - Barrier
   - Weapon
   - Body
+  - City
+  - Me
+  - PlayerSight
   layers:
   - Default
   - TransparentFX

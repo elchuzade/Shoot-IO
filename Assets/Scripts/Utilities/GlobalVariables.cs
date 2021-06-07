@@ -18,6 +18,28 @@ public class GlobalVariables : MonoBehaviour
 
     public enum BallTypes { Common, Uncommon, Rare, Legendary, Special };
 
+    public enum Emojies
+    {
+        AngryFace,
+        DisappointedDace,
+        FaceWithRaisedEyebrow,
+        FaceWithTearsOfJoy,
+        GrinningFace,
+        GrinningFaceWithSmilingEyes,
+        GrinningFaceWithSweat,
+        GrinningSquintingFace,
+        PensiveFace,
+        RelievedFace,
+        SlightlySmilingFace,
+        SmilingFaceWIthSmilingEyes,
+        SmilingFaceWithTears,
+        SmilingFace,
+        SmirkingFace,
+        UnamusedFace,
+        WinkingFace,
+        WoozyFace
+    };
+
     public enum Weapons {
         Glock,
         DesertEagle,
@@ -35,30 +57,44 @@ public class GlobalVariables : MonoBehaviour
         EpicSniper
     };
 
-    public enum Wearables {
-        Bandana,
+    public enum HeadItems
+    {
         BikerHelmet,
-        Binocular,
         Cap,
-        Chefhat,
-        Cigar,
+        ChefHat,
         CowboyHat,
-        EyePatch,
         FootballHelmet,
-        MagnifyingGlass,
         MilitaryHelmet,
         MinerHelmet,
         OfficerHat,
         RapCap,
         RopeCap,
         RussianHat,
-        SnorkleGlasses,
-        SnorkleTube,
         SportsBand,
-        SportsGlasses,
-        StarGlasses,
-        SurgeryMask,
         TennisHat,
         VikingHelmet
+    };
+
+    public enum EyesItems
+    {
+        Binocular,
+        EyePatch,
+        MagnifyingGlass,
+        SnorkleGlasses,
+        SportsGlasses,
+        StarGlasses,
+        CowboyGlasses
+    };
+
+    public enum MouthItems
+    {
+        Bandana,
+        Cigar,
+        SnorkleTube,
+        SurgeryMask,
+    };
+
+    public enum Wearables {
+        Cigar
     };
 }

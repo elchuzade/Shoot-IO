@@ -1,86 +1,38 @@
 using UnityEngine;
+using static GlobalVariables;
 
 public class Weapon : MonoBehaviour
 {
-    public bool targetLocked;
-    public GameObject lockedTarget;
+    public Weapons weaponName;
+    public float baseFireRate;
 
-    Transform barrelTip;
-    GameObject bullet;
+    [SerializeField] Transform barrelTip;
+    [SerializeField] GameObject bullet;
     // Where bullet case will fly out
+    [SerializeField] ParticleSystem tipFire;
+    [SerializeField] ParticleSystem bolt;
 
-    float fireRate;
-    float shootTimer = 0;
-
-    [SerializeField] GameObject glock;
-    [SerializeField] GameObject revolver;
-    [SerializeField] GameObject desertEagle;
-    [SerializeField] GameObject mac10;
-    [SerializeField] GameObject usp;
-
-    [SerializeField] GameObject ak47;
-    [SerializeField] GameObject m4a1;
-    [SerializeField] GameObject m3super90;
-    [SerializeField] GameObject famas;
-    [SerializeField] GameObject fnp90;
-    [SerializeField] GameObject steyrAug;
-
-    [SerializeField] Transform rightArm;
-
-    GameObject myWeapon;
-
-    void Start()
-    {
-        myWeapon = Instantiate(mac10, rightArm.position, Quaternion.identity);
-        myWeapon.transform.SetParent(rightArm);
-        myWeapon.transform.localScale = Vector3.one;
-
-        fireRate = myWeapon.GetComponent<WeaponParts>().baseFireRate;
-
-        barrelTip = myWeapon.GetComponent<WeaponParts>().barrelTip;
-        bullet = myWeapon.GetComponent<WeaponParts>().bullet;
-    }
 
     #region Public Methods
-    // Repetitive function gets called inside update method
-    public void Turn(Vector3 direction)
+    public void RunFireParticles()
     {
-        if (targetLocked)
-        {
-            // Aim at target and shoot
-            Vector3 directionToClosestEnemy = lockedTarget.transform.position - transform.position;
-            float angle = Mathf.Atan2(directionToClosestEnemy.z, directionToClosestEnemy.x) * Mathf.Rad2Deg;
+        // Run Bullet case falling
+        bolt.Play();
+        var boltEmission = bolt.emission;
+        boltEmission.enabled = true;
 
-            transform.parent.localRotation = Quaternion.Euler(0, 90 - angle, 0);
-
-            Shoot();
-        } else
-        {
-            // Follow mouse direction
-            float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
-
-            if (angle != 0)
-            {
-                // Joystick is moving
-                transform.parent.localRotation = Quaternion.Euler(0, 90 - angle, 0);
-            }
-        }
+        // Run fire from the barrel tip
+        tipFire.Play();
+        var timFireEmission = bolt.emission;
+        timFireEmission.enabled = true;
     }
-    #endregion
 
-    #region Private Methods
-    // Repetitive function gets called inside update method
-    void Shoot()
+    public void MoveWeapon(Transform _transform)
     {
-        if (shootTimer >= fireRate)
-        {
-            myWeapon.GetComponent<WeaponParts>().RunFireParticles();
-            Instantiate(bullet, barrelTip.position, barrelTip.rotation);
-            shootTimer = 0;
-        } else
-        {
-            shootTimer += Time.deltaTime;
-        }
+        Debug.Log("moving weapon");
+        // In city position and rotation and out city position and rotation
+        transform.position = _transform.position;
+        transform.rotation = _transform.rotation;
     }
     #endregion
 }
