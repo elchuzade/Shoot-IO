@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
+    public class CityBlock
+    {
+        public Vector3 position;
+    }
+
     public enum RotateDirection { Clockwise, CounterClockwise }
 
     public enum ChestColors { None, Red, Gold, Silver }
@@ -17,6 +22,38 @@ public class GlobalVariables : MonoBehaviour
     public enum ChestPrizeTypes { Coin, Diamond, Skill, Ball };
 
     public enum BallTypes { Common, Uncommon, Rare, Legendary, Special };
+
+    public enum PlatformTypes { CornerPlatform, GatePlatform, SidePlatform };
+    public enum BuildingTypes { WhiteHouse, EiffelTower, Kremlin };
+    public enum TowerTypes { WoodTower, StoneTower, MetalTower };
+    public enum WallTypes { WoodWall, StoneWall, MetalWall };
+    public enum GateTypes { WoodGate, StoneGate, MetalGate };
+
+    public class Building {
+        public Vector3 position;
+        public Vector3 rotation;
+        public BuildingTypes buildingType;
+    };
+
+    public class Gate {
+        public Vector3 position;
+        public Vector3 rotation;
+        public GateTypes gateType;
+    };
+
+    public class Tower
+    {
+        public Vector3 position;
+        public Vector3 rotation;
+        public TowerTypes towerType;
+    };
+
+    public class Wall
+    {
+        public Vector3 position;
+        public Vector3 rotation;
+        public WallTypes wallType;
+    };
 
     public enum Emojies
     {

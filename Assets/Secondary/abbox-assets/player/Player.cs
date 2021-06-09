@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using static GlobalVariables;
 
 public class Player : MonoBehaviour
@@ -9,6 +10,8 @@ public class Player : MonoBehaviour
     public HeadItems headItem = HeadItems.CowboyHat;
     public EyesItems eyesItem = EyesItems.CowboyGlasses;
     public MouthItems mouthItem = MouthItems.Cigar;
+
+    public List<Platform> platforms = new List<Platform>();
 
     void Awake()
     {
@@ -33,11 +36,11 @@ public class Player : MonoBehaviour
     public void ResetPlayer()
     {
         coins = 0;
-        weapon = Weapons.SteyrAug;
+        weapon = Weapons.FNP90;
         emoji = Emojies.AngryFace;
-        headItem = HeadItems.CowboyHat;
-        eyesItem = EyesItems.CowboyGlasses;
-        mouthItem = MouthItems.Cigar;
+        headItem = HeadItems.FootballHelmet;
+        //eyesItem = EyesItems.CowboyGlasses;
+        //mouthItem = MouthItems.Cigar;
 
         SaveSystem.SavePlayer(this);
     }
