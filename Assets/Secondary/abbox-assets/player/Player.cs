@@ -11,8 +11,6 @@ public class Player : MonoBehaviour
     public EyesItems eyesItem = EyesItems.CowboyGlasses;
     public MouthItems mouthItem = MouthItems.Cigar;
 
-    public List<Platform> platforms = new List<Platform>();
-
     void Awake()
     {
         transform.SetParent(transform.parent.parent);
