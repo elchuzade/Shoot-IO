@@ -6,6 +6,8 @@ using static GlobalVariables;
 
 public class TowerUpgradeStatus : MonoBehaviour
 {
+    Player player;
+
     [SerializeField] FloatingJoystick floatingJoystick;
     [SerializeField] Scrollbar towerScrollbar;
     [SerializeField] Scrollbar weaponScrollbar;
@@ -43,12 +45,19 @@ public class TowerUpgradeStatus : MonoBehaviour
 
     void Start()
     {
-        // Fake Data
-        currentTowerWeaponName = Weapons.Famas;
-        towerIndex = 3;
+        player = FindObjectOfType<Player>();
 
+        //player.ResetPlayer();
+        player.LoadPlayer();
+
+        weaponScrollbar.value = 0;
+        weaponScrollbar.value = 0;
         weaponScrollbar.onValueChanged.AddListener(value => SwipeWeaponValue(value));
         towerScrollbar.onValueChanged.AddListener(value => SwipeTowerValue(value));
+
+        // Fake Data
+        towerIndex = 0;
+        currentTowerWeaponName = player.towerWeapons[towerIndex];
 
         SelectCurrentWeapon();
         SelectCurrentTower();
@@ -209,6 +218,15 @@ public class TowerUpgradeStatus : MonoBehaviour
                 weaponIndex = i;
                 CheckWeaponArrowColor();
                 InstantiateWeapon(currentTowerWeaponName);
+
+                // Update player Data so towers change their weapon accordingly
+                if (player.towerWeapons[towerIndex] != currentTowerWeaponName)
+                {
+                    Debug.Log("saving");
+                    player.towerWeapons[towerIndex] = currentTowerWeaponName;
+                    player.SavePlayer();
+                }
+
                 break;
             }
         }
@@ -248,6 +266,20 @@ public class TowerUpgradeStatus : MonoBehaviour
             {
                 mapTowers[i].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
                 mapTowers[i].GetComponent<Image>().color = new Color32(255, 255, 0, 255);
+
+                // Weapon of a current tower from player data
+                Weapons towerWeapon = player.towerWeapons[towerIndex];
+                // Find that weapon in the scroll list and set scroll value to that item and set weapon index to that index
+                for (int j = 0; j < weaponItems.Count; j++)
+                {
+                    if (weaponItems[j].weapon == towerWeapon)
+                    {
+                        // Found the weapon of tower in scroll list
+                        weaponIndex = j;
+                        currentTowerWeaponName = weaponItems[weaponIndex].weapon;
+                        SelectCurrentWeapon();
+                    }
+                }
 
                 CheckTowerArrowColor();
             } else

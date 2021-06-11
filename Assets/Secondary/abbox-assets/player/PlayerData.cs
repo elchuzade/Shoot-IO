@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System;
 using static GlobalVariables;
 
 [Serializable]
@@ -11,6 +12,10 @@ public class PlayerData
     public EyesItems eyesItem = EyesItems.CowboyGlasses;
     public MouthItems mouthItem = MouthItems.Cigar;
 
+    public string myVillageName;
+    // Each item in the link represents the weapon for the tower of that index
+    public List<Weapons> towerWeapons = new List<Weapons>();
+
     public PlayerData (Player player)
     {
         coins = player.coins;
@@ -19,5 +24,8 @@ public class PlayerData
         headItem = player.headItem;
         eyesItem = player.eyesItem;
         mouthItem = player.mouthItem;
+
+        myVillageName = player.myVillageName;
+        towerWeapons = player.towerWeapons;
     }
 }

@@ -11,6 +11,17 @@ public class Player : MonoBehaviour
     public EyesItems eyesItem = EyesItems.CowboyGlasses;
     public MouthItems mouthItem = MouthItems.Cigar;
 
+    public string myVillageName;
+    // Each item in the link represents the weapon for the tower of that index
+    public List<Weapons> towerWeapons = new List<Weapons>() {
+        Weapons.Famas, Weapons.Famas,
+        Weapons.M4A1, Weapons.M4A1, Weapons.M4A1,
+        Weapons.AK47, Weapons.AK47, Weapons.AK47,
+        Weapons.SteyrAug, Weapons.SteyrAug, Weapons.SteyrAug,
+        Weapons.Famas,
+        Weapons.FNP90, Weapons.FNP90, Weapons.FNP90, Weapons.FNP90
+    };
+
     void Awake()
     {
         transform.SetParent(transform.parent.parent);
@@ -37,8 +48,18 @@ public class Player : MonoBehaviour
         weapon = Weapons.FNP90;
         emoji = Emojies.AngryFace;
         headItem = HeadItems.FootballHelmet;
-        //eyesItem = EyesItems.CowboyGlasses;
-        //mouthItem = MouthItems.Cigar;
+        eyesItem = EyesItems.CowboyGlasses;
+        mouthItem = MouthItems.Cigar;
+
+        myVillageName = "My Village";
+        towerWeapons = new List<Weapons>() {
+            Weapons.Famas, Weapons.Famas,
+            Weapons.M4A1, Weapons.M4A1, Weapons.M4A1,
+            Weapons.AK47, Weapons.AK47, Weapons.AK47,
+            Weapons.SteyrAug, Weapons.SteyrAug, Weapons.SteyrAug,
+            Weapons.Famas,
+            Weapons.FNP90, Weapons.FNP90, Weapons.FNP90, Weapons.FNP90
+        };
 
         SaveSystem.SavePlayer(this);
     }
@@ -58,5 +79,8 @@ public class Player : MonoBehaviour
         headItem = data.headItem;
         eyesItem = data.eyesItem;
         mouthItem = data.mouthItem;
+
+        myVillageName = data.myVillageName;
+        towerWeapons = data.towerWeapons;
     }
 }
