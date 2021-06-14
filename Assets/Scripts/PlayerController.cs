@@ -1,14 +1,8 @@
 using UnityEngine;
-using static GlobalVariables;
 
 public class PlayerController : Character
 {
     FloatingJoystick floatingJoystick;
-    Navigator navigator;
-
-    float currentXP;
-    float nextLevelXP;
-    float HP;
 
     PlayerCanvas playerCanvas;
 
@@ -21,7 +15,6 @@ public class PlayerController : Character
     void Start()
     {
         playerCanvas = FindObjectOfType<PlayerCanvas>();
-        navigator = FindObjectOfType<Navigator>();
         floatingJoystick = FindObjectOfType<FloatingJoystick>();
     }
 
@@ -48,9 +41,6 @@ public class PlayerController : Character
     #endregion
 
     #region Public Methods
-    public void ClickTeleportButton()
-    {
-        navigator.LoadMyVillage();
-    }
+
     #endregion
 }

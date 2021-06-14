@@ -7,6 +7,7 @@ public class PlayerData
 {
     public float XP = 0;
     public float HP = 100;
+    public float maxHP = 100;
     public int coins = 0;
     public PlayerRank rank = PlayerRank.Rank0;
     public Weapons weapon = Weapons.Glock;
@@ -23,6 +24,7 @@ public class PlayerData
     {
         XP = player.XP;
         HP = player.HP;
+        maxHP = player.maxHP;
         rank = player.rank;
         coins = player.coins;
         weapon = player.weapon;

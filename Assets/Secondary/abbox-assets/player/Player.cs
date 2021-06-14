@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 {
     public float XP = 0;
     public float HP = 100;
+    public float maxHP = 100;
     public int coins = 0;
     public PlayerRank rank = PlayerRank.Rank0;
     public Weapons weapon = Weapons.Glock;
@@ -47,9 +48,10 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
-        XP = 0;
+        XP = 20;
         HP = 100;
-        rank = PlayerRank.Rank0;
+        maxHP = 1000;
+        rank = PlayerRank.Rank34;
         coins = 0;
         weapon = Weapons.FNP90;
         emoji = Emojies.AngryFace;
@@ -81,6 +83,7 @@ public class Player : MonoBehaviour
 
         XP = data.XP;
         HP = data.HP;
+        maxHP = data.maxHP;
         rank = data.rank;
         coins = data.coins;
         weapon = data.weapon;
