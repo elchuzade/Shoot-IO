@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
-    public class CityBlock
-    {
-        public Vector3 position;
-    }
+    public enum MobMovementTypes { Patrol, Idle, Wander };
 
     public enum RotateDirection { Clockwise, CounterClockwise }
 
@@ -29,30 +26,64 @@ public class GlobalVariables : MonoBehaviour
     public enum WallTypes { WoodWall, StoneWall, MetalWall };
     public enum GateTypes { WoodGate, StoneGate, MetalGate };
 
-    public class Building {
-        public Vector3 position;
-        public Vector3 rotation;
-        public BuildingTypes buildingType;
-    };
-
-    public class Gate {
-        public Vector3 position;
-        public Vector3 rotation;
-        public GateTypes gateType;
-    };
-
-    public class Tower
+    public enum PlayerRank
     {
-        public Vector3 position;
-        public Vector3 rotation;
-        public TowerTypes towerType;
-    };
-
-    public class Wall
-    {
-        public Vector3 position;
-        public Vector3 rotation;
-        public WallTypes wallType;
+        Rank0,
+        Rank1,
+        Rank2,
+        Rank3,
+        Rank4,
+        Rank5,
+        Rank6,
+        Rank7,
+        Rank8,
+        Rank9,
+        Rank10,
+        Rank11,
+        Rank12,
+        Rank13,
+        Rank14,
+        Rank15,
+        Rank16,
+        Rank17,
+        Rank18,
+        Rank19,
+        Rank20,
+        Rank21,
+        Rank22,
+        Rank23,
+        Rank24,
+        Rank25,
+        Rank26,
+        Rank27,
+        Rank28,
+        Rank29,
+        Rank30,
+        Rank31,
+        Rank32,
+        Rank33,
+        Rank34,
+        Rank35,
+        Rank36,
+        Rank37,
+        Rank38,
+        Rank39,
+        Rank40,
+        Rank41,
+        Rank42,
+        Rank43,
+        Rank44,
+        Rank45,
+        Rank46,
+        Rank47,
+        Rank48,
+        Rank49,
+        Rank50,
+        Rank51,
+        Rank52,
+        Rank53,
+        Rank54,
+        Rank55     
     };
 
     public enum Emojies

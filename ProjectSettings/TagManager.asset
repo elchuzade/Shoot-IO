@@ -12,6 +12,7 @@ TagManager:
   - City
   - Me
   - PlayerSight
+  - Target
   layers:
   - Default
   - TransparentFX

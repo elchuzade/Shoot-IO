@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -29,6 +27,7 @@ public class Tower : MonoBehaviour
     public void InstantiateTowerWeapon(GameObject weapon)
     {
         GameObject weaponInstance = Instantiate(weapon, rightArm.position, rightArm.rotation);
+        weaponInstance.transform.SetParent(transform);
 
     }
     #endregion

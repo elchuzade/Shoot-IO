@@ -4,7 +4,10 @@ using static GlobalVariables;
 
 public class Player : MonoBehaviour
 {
+    public float XP = 0;
+    public float HP = 100;
     public int coins = 0;
+    public PlayerRank rank = PlayerRank.Rank0;
     public Weapons weapon = Weapons.Glock;
     public Emojies emoji = Emojies.SmilingFace;
     public HeadItems headItem = HeadItems.CowboyHat;
@@ -44,6 +47,9 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
+        XP = 0;
+        HP = 100;
+        rank = PlayerRank.Rank0;
         coins = 0;
         weapon = Weapons.FNP90;
         emoji = Emojies.AngryFace;
@@ -73,6 +79,9 @@ public class Player : MonoBehaviour
             data = SaveSystem.LoadPlayer();
         }
 
+        XP = data.XP;
+        HP = data.HP;
+        rank = data.rank;
         coins = data.coins;
         weapon = data.weapon;
         emoji = data.emoji;

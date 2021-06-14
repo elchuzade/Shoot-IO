@@ -5,7 +5,10 @@ using static GlobalVariables;
 [Serializable]
 public class PlayerData
 {
+    public float XP = 0;
+    public float HP = 100;
     public int coins = 0;
+    public PlayerRank rank = PlayerRank.Rank0;
     public Weapons weapon = Weapons.Glock;
     public Emojies emoji = Emojies.SmilingFace;
     public HeadItems headItem = HeadItems.CowboyHat;
@@ -18,6 +21,9 @@ public class PlayerData
 
     public PlayerData (Player player)
     {
+        XP = player.XP;
+        HP = player.HP;
+        rank = player.rank;
         coins = player.coins;
         weapon = player.weapon;
         emoji = player.emoji;

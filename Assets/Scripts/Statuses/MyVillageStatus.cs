@@ -32,9 +32,11 @@ public class MyVillageStatus : MonoBehaviour
     #region Private Methods
     void InstantiatePlayerCharacter()
     {
-        var pos = Random.insideUnitCircle;
+        Vector2 pos = Random.insideUnitCircle;
+        // 6.5 and 8 define the inner and outer circle of haimdall house
         pos = pos.normalized * Random.Range(6.5f, 8);
 
+        // 0.75 is half of the height of an emoji
         Vector3 randomPosition = new Vector3(pos.x, 0.75f, pos.y);
 
         Me = Instantiate(characterPrefab, transform.position, Quaternion.identity);

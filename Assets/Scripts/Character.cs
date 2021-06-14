@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static GlobalVariables;
@@ -102,7 +101,6 @@ public class Character : MonoBehaviour
             if (cityPlatforms.Count == 0 && cameraInCity)
             {
                 weaponScript.MoveWeapon(rightArm);
-                //playerCamera.transform.position -= new Vector3(0, 5, -5);
                 cameraInCity = false;
             }
         }
@@ -112,7 +110,6 @@ public class Character : MonoBehaviour
     {
         //float angle = Mathf.Atan2(direction.z, direction.x) * Mathf.Rad2Deg;
         rb.velocity = direction.normalized * baseSpeed;
-        //transform.parent.position += direction * baseSpeed * Time.deltaTime;
     }
 
     public void Turn(Vector3 direction)
