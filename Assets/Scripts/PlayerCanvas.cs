@@ -14,11 +14,9 @@ public class PlayerCanvas : MonoBehaviour
     [SerializeField] Image tpLoader;
 
     // To make the loader work
-    float minXP;
     float maxXP;
 
     float maxHP;
-    float minHP = 0;
 
     float regenHP = 10; // 1 hp per second
     float timerHP = 0;
@@ -31,6 +29,9 @@ public class PlayerCanvas : MonoBehaviour
 
     // Incase your rank changes during the game, you destory this one and instantiate a new one
     GameObject rankInstance;
+
+    // To grant the next rank when killing mobs
+    PlayerRank nextRank;
 
     void Start()
     {
@@ -86,6 +87,34 @@ public class PlayerCanvas : MonoBehaviour
     }
 
     #region Public Methods
+    public void GiveXP(float xp)
+    {
+        player.XP += xp;
+        if (player.XP >= maxXP)
+        {
+            player.rank = nextRank;
+        }
+        player.SavePlayer();
+        SetPlayerXP();
+        SetPlayerRank();
+    }
+
+    public void DealDamage(float damage)
+    {
+        player.HP -= damage;
+        if (player.HP <= 0)
+        {
+            // You die
+            ClickTeleportButton();
+        } else
+        {
+            // TODO: saveing at every bullet hit might be too expensive
+            // Try copying values into local vars and managing them, once in a while saving to player data
+            player.SavePlayer();
+            SetPlayerHP();
+        }
+    }
+
     public void ClickTeleportButton()
     {
         navigator.LoadMyVillage();
@@ -93,8 +122,6 @@ public class PlayerCanvas : MonoBehaviour
 
     public void SetPlayerXP()
     {
-        PlayerRank nextRank;
-
         PlayerRank[] allRanks = (PlayerRank[])Enum.GetValues(typeof(PlayerRank));
 
         for (int i = 0; i < allRanks.Length; i++)
@@ -111,15 +138,15 @@ public class PlayerCanvas : MonoBehaviour
             }
         }
 
-        minXP = GetRankXP(player.rank);
+        float minXP = GetRankXP(player.rank);
 
         // Loaded goes from 0 to 1, so minXP, maxXP, currentXP are what we need
-        xpLoader.fillAmount = player.XP / (maxXP - minXP);
+        xpLoader.fillAmount = (player.XP - minXP) / (maxXP - minXP);
     }
 
     public void SetPlayerHP()
     {
-        hpLoader.fillAmount = player.HP / (maxHP - minHP);
+        hpLoader.fillAmount = player.HP / maxHP;
     }
 
     public void SetPlayerRank()

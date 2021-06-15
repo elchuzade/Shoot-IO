@@ -43,7 +43,12 @@ public class Spawner : MonoBehaviour
         GameObject mob = Instantiate(spawnerPrefab, transform.position + randomPosition, Quaternion.identity);
         mob.transform.SetParent(transform);
         mob.transform.Find("Mob").GetComponent<Mob>().spawnerPosition = transform.position;
-
+        mob.transform.Find("Mob").GetComponent<Mob>().spawner = this;
         mobs.Add(mob);
+    }
+
+    public void RemoveMobFromMobsList(GameObject mob)
+    {
+        mobs.Remove(mob);
     }
 }

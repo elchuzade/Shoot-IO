@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 2895756538412192254}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Target
+  m_TagString: Me
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,6 +151,7 @@ MonoBehaviour:
   - {fileID: 4494668370555731815, guid: a4b2ef0fb2ebc4df89faf5ff901468e6, type: 3}
   - {fileID: 8088693263787053252, guid: c735b68e2241c48d1ac094c68dc9375a, type: 3}
   - {fileID: 1085841975220371250, guid: 73015bfaffa494344ab43f7e4b4e2d06, type: 3}
+  appearParticles: {fileID: 3997128102427499253}
 --- !u!114 &3926364470679423267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +176,9 @@ SphereCollider:
   m_GameObject: {fileID: 2873202658504208497}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 0.7
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3099951160368734256
 GameObject:
@@ -331,6 +332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 3926364470679423267}
+  me: 1
 --- !u!1 &6652595859494695790
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,6 +518,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84a31d5203e154cb1abf8f89b75ee365, type: 3}
+--- !u!1 &3997128102427499253 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6101676262595228557, guid: 84a31d5203e154cb1abf8f89b75ee365, type: 3}
+  m_PrefabInstance: {fileID: 7193696589993994616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3997128102427499248 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6101676262595228552, guid: 84a31d5203e154cb1abf8f89b75ee365, type: 3}

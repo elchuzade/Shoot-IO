@@ -1,7 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GlobalVariables : MonoBehaviour
 {
+    // Change prefab colors too from materials for them
+    public Color32 basicColor = new Color32(183, 183, 183, 255);
+    public Color32 commonColor = new Color32(176, 29, 32, 255);
+    public Color32 uncommonColor = new Color32(50, 255, 10, 255);
+    public Color32 rareColor = new Color32(105, 50, 211, 255);
+    public Color32 epicColor = new Color32(107, 100, 5, 255);
+    public Color32 uniqueColor = new Color32(60, 5, 255, 255);
+    public Color32 legendaryColor = new Color32(100, 175, 150, 255);
+    public Color32 specialColor = new Color32(100, 5, 50, 255);
+
     public enum MobMovementTypes { Patrol, Idle, Wander };
 
     public enum RotateDirection { Clockwise, CounterClockwise }
@@ -25,6 +36,95 @@ public class GlobalVariables : MonoBehaviour
     public enum TowerTypes { WoodTower, StoneTower, MetalTower };
     public enum WallTypes { WoodWall, StoneWall, MetalWall };
     public enum GateTypes { WoodGate, StoneGate, MetalGate };
+
+    public enum KeyTypes
+    {
+        BasicKey,
+        CommonKey,
+        UncommonKey,
+        RareKey,
+        EpicKey,
+        UniqueKey,
+        LegendaryKey,
+        SpecialKey,
+    };
+
+    public enum QuestItems
+    {
+        DragonTooth,
+        BearClaw,
+        ResurrectionPotion,
+        TreasureMap,
+        MagicSword
+    };
+
+    public enum BasicItems
+    {
+        Cigar,
+        Glock,
+        USP
+    };
+
+    public enum CommonItems
+    {
+        SteyrAug,
+        Famas,
+        AK47
+    };
+        
+    public enum UncommonItems
+    {
+        SurgeryMask,
+        FNP90,
+        TennisHat
+    };
+
+    public enum RareItems
+    {
+        Binocular,
+        SnorkleGlasses,
+        RopeBand
+    };
+
+    public enum EpicItems
+    {
+        Cap,
+        RussianHat,
+        Bandana
+    };
+
+    public enum UniqueItems
+    {
+        Mac10,
+        MilitaryHelmet,
+        ChefHat
+    };
+
+    public enum LegendaryItems
+    {
+        M4A1,
+        VikingHelmet,
+        MinerHelmet
+    };
+
+    public enum SpecialItems
+    {
+        BikerHelmet,
+        SportsBand,
+        SnorkleTube
+    };
+
+    public enum ItemTypes
+    {
+        BasicItems,
+        CommonItems,
+        UncommonItems,
+        RareItems,
+        EpicItems,
+        UniqueItems,
+        LegendaryItems,
+        SpecialItems
+    };
 
     public enum PlayerRank
     {
@@ -108,7 +208,8 @@ public class GlobalVariables : MonoBehaviour
         WoozyFace
     };
 
-    public enum Weapons {
+    public enum Weapons
+    {
         Glock,
         DesertEagle,
         Revolver,
@@ -160,9 +261,5 @@ public class GlobalVariables : MonoBehaviour
         Cigar,
         SnorkleTube,
         SurgeryMask,
-    };
-
-    public enum Wearables {
-        Cigar
     };
 }

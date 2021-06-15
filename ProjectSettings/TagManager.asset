@@ -13,6 +13,7 @@ TagManager:
   - Me
   - PlayerSight
   - Target
+  - Mob
   layers:
   - Default
   - TransparentFX

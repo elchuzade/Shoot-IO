@@ -45,7 +45,7 @@ public class Character : MonoBehaviour
     List<GameObject> cityPlatforms = new List<GameObject>();
 
     // This is to have speed multipliers as rank increases or as weapon changes or as skill upgrades
-    float baseSpeed = 8f;
+    float baseSpeed = 24f;
 
     #region Public Methods
     public void EnterCity(GameObject cityPlatform)

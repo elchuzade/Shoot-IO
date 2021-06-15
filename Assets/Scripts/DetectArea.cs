@@ -6,6 +6,9 @@ public class DetectArea : MonoBehaviour
     List<GameObject> lockedTargets = new List<GameObject>();
     [SerializeField] Target target;
 
+    // To not aim at others
+    [SerializeField] bool me;
+
     void Update()
     {
         if (lockedTargets.Count > 0)
@@ -25,7 +28,7 @@ public class DetectArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Target")
+        if (other.gameObject.tag == "Me" && !me || other.gameObject.tag == "Mob" && me)
         {
             lockedTargets.Add(other.gameObject);
         }
@@ -33,7 +36,7 @@ public class DetectArea : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Target")
+        if (other.gameObject.tag == "Me" && !me || other.gameObject.tag == "Mob" && me)
         {
             lockedTargets.Remove(other.gameObject);
         }
@@ -42,15 +45,21 @@ public class DetectArea : MonoBehaviour
     GameObject GetClosestLockedTarget()
     {
         GameObject closestTarget = lockedTargets[0];
-        float targetDistance = Vector3.Distance(closestTarget.transform.position, transform.position);
-
-        for (int i = 0; i < lockedTargets.Count; i++)
+        if (closestTarget != null)
         {
-            if (Vector3.Distance(lockedTargets[i].transform.position, transform.position) < targetDistance)
+            float targetDistance = Vector3.Distance(closestTarget.transform.position, transform.position);
+            for (int i = 0; i < lockedTargets.Count; i++)
             {
-                targetDistance = Vector3.Distance(lockedTargets[i].transform.position, transform.position);
+                if (lockedTargets[i] != null && Vector3.Distance(lockedTargets[i].transform.position, transform.position) < targetDistance)
+                {
+                    targetDistance = Vector3.Distance(lockedTargets[i].transform.position, transform.position);
+                }
             }
+            return closestTarget;
+        } else
+        {
+            lockedTargets.RemoveAt(0);
         }
-        return closestTarget;
+        return null;
     }
 }

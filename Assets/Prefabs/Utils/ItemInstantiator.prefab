@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7204684544613761207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7204684544613761205}
+  - component: {fileID: 7204684544613761204}
+  m_Layer: 0
+  m_Name: ItemInstantiator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7204684544613761205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204684544613761207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7204684544613761204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7204684544613761207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b607f778b395d46159db70461ada3777, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questItems: []
+  basicItems:
+  - {fileID: 8088693263787053252, guid: c735b68e2241c48d1ac094c68dc9375a, type: 3}
+  - {fileID: 4239140622914589439, guid: b1bef010e616c4e52a8b37fe0e2c0f44, type: 3}
+  - {fileID: 8098306839564097477, guid: 7c7b49782baf848659e85dcc38188f92, type: 3}
+  commonItems:
+  - {fileID: 3237993481448529155, guid: 11fe753fadad14a239bd856ed49d6614, type: 3}
+  - {fileID: 8801413353983191339, guid: e3765ce1aa0ed41089341b83843a78be, type: 3}
+  - {fileID: 2899507470313365483, guid: f8cef4faa9cab4422a0897ac7812ad3d, type: 3}
+  uncommonItems:
+  - {fileID: 265488988178405528, guid: 6ae6ebb9761e841eda38f34cba737109, type: 3}
+  - {fileID: 7420100111653137475, guid: 8108fc920873b45e38e46976c2a1c2c4, type: 3}
+  - {fileID: 8875539096958753904, guid: 1f12cf46e69eb45719ce83fc8e416305, type: 3}
+  rareItems:
+  - {fileID: 3920347187971361711, guid: 072e4ee05e6a94893b5256d29615d62f, type: 3}
+  - {fileID: 6516089911461313176, guid: 957a1ad8ce32346b38dda884251169e1, type: 3}
+  - {fileID: 1391141676734472288, guid: a64bc75989157486b8a5fe0f35ab970e, type: 3}
+  epicItems:
+  - {fileID: 8100702208839455399, guid: bf879c88a064d4ce59735aff9c57ca82, type: 3}
+  - {fileID: 3165031595240449624, guid: 18dc304e6797f4dae80433a2c7cc93de, type: 3}
+  - {fileID: 4494668370555731815, guid: a4b2ef0fb2ebc4df89faf5ff901468e6, type: 3}
+  uniqueItems:
+  - {fileID: 3876573483028442808, guid: 2e5be8744aada40aaad863cd259226e7, type: 3}
+  - {fileID: 7862018426412084130, guid: 81b17fb8852d34b9a9710ed908022cc9, type: 3}
+  - {fileID: 2820149930030146011, guid: fc099cad5472147c5b11addc34be39fd, type: 3}
+  legendaryItems:
+  - {fileID: 6723594507993826605, guid: 941164c24e0db4b6396d189935e7ee88, type: 3}
+  - {fileID: 5615313773607964455, guid: 0dee688da431643328a911b79085d0fe, type: 3}
+  - {fileID: 3650246464744322613, guid: 0c4bff046583a43dbad8e32b4443e304, type: 3}
+  specialItems:
+  - {fileID: 5253362067844377400, guid: a934432ca6ca1465a83409777d542ee5, type: 3}
+  - {fileID: 1787315935702051173, guid: 8ea0898ee6def4c1696fae2de5cfbd74, type: 3}
+  - {fileID: 1085841975220371250, guid: 73015bfaffa494344ab43f7e4b4e2d06, type: 3}
+  keyItems:
+  - {fileID: 5179751009420505844, guid: 1dec59f512bf94e7f801ea761bf0cfff, type: 3}
+  - {fileID: 7164987148790898849, guid: e2594c226d8e546a9aff85c588b99213, type: 3}
+  - {fileID: 7517449395225986056, guid: 2e50adb0699824889b94bbc708a8b8a5, type: 3}
+  coinItem: {fileID: 1239023578362067305, guid: 6fcaa6617c4d844d196bc52d5afdb28a, type: 3}
+  diamondItem: {fileID: 2483263332025443735, guid: 9013754df161049f881de79426b32342, type: 3}

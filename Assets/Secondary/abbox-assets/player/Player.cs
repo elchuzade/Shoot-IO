@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
         XP = 20;
         HP = 100;
         maxHP = 1000;
-        rank = PlayerRank.Rank34;
+        rank = PlayerRank.Rank0;
         coins = 0;
-        weapon = Weapons.FNP90;
+        weapon = Weapons.Mac10;
         emoji = Emojies.AngryFace;
         headItem = HeadItems.FootballHelmet;
         eyesItem = EyesItems.CowboyGlasses;

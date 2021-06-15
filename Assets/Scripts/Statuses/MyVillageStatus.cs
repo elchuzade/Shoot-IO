@@ -19,7 +19,7 @@ public class MyVillageStatus : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        //player.ResetPlayer();
+        player.ResetPlayer();
         player.LoadPlayer();
 
         // Instantiate a player character and pass all player data to it to instantiate its items, weapon and so on
@@ -28,6 +28,21 @@ public class MyVillageStatus : MonoBehaviour
         InstantiateTowerWeapons();
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Me")
+        {
+            other.transform.Find("Character").GetComponent<PlayerController>().EnterCity(gameObject);
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Me")
+        {
+           other.transform.Find("Character").GetComponent<PlayerController>().ExitCity(gameObject);
+        }
+    }
 
     #region Private Methods
     void InstantiatePlayerCharacter()

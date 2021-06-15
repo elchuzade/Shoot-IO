@@ -5,6 +5,7 @@ public class Weapon : MonoBehaviour
 {
     public Weapons weaponName;
     public float baseFireRate;
+    float shootTimer = 0;
 
     [SerializeField] Transform barrelTip;
     [SerializeField] GameObject bullet;
@@ -29,10 +30,22 @@ public class Weapon : MonoBehaviour
 
     public void MoveWeapon(Transform _transform)
     {
-        Debug.Log("moving weapon");
         // In city position and rotation and out city position and rotation
         transform.position = _transform.position;
         transform.rotation = _transform.rotation;
+    }
+
+    public void Shoot()
+    {
+        if (shootTimer >= baseFireRate)
+        {
+            Instantiate(bullet, barrelTip.position, barrelTip.rotation);
+            RunFireParticles();
+            shootTimer = 0;
+        } else
+        {
+            shootTimer += Time.deltaTime;
+        }
     }
     #endregion
 }

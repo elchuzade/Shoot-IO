@@ -10,6 +10,13 @@ public class Target : MonoBehaviour
 
     [SerializeField] GameObject rightArm;
 
+    Weapon weapon;
+
+    void Start()
+    {
+        weapon = rightArm.transform.GetChild(0).GetComponent<Weapon>();
+    }
+
     void Update()
     {
         if (targetLocked)
@@ -20,7 +27,11 @@ public class Target : MonoBehaviour
                 rightArm.transform.Rotate(Vector3.up, -9);
                 weaponRotated = true;
             }
-            transform.LookAt(lockedTarget.transform);
+            if (lockedTarget != null)
+            {
+                transform.LookAt(lockedTarget.transform);
+                weapon.Shoot();
+            }
         } else
         {
             if (weaponRotated)

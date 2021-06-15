@@ -6,8 +6,10 @@ public class PlayerController : Character
 
     PlayerCanvas playerCanvas;
 
-    float cameraZoomedIn = 12.2f;
-    float cameraZoomedOut = 20.2f;
+    [SerializeField] GameObject appearParticles;
+
+    float cameraZoomedIn = 14.2f;
+    float cameraZoomedOut = 22.2f;
 
     float idleAnimationTime = 3;
     float idleTimer = 0;
@@ -16,6 +18,8 @@ public class PlayerController : Character
     {
         playerCanvas = FindObjectOfType<PlayerCanvas>();
         floatingJoystick = FindObjectOfType<FloatingJoystick>();
+
+        Destroy(appearParticles, 2);
     }
 
     void Update()
@@ -41,6 +45,9 @@ public class PlayerController : Character
     #endregion
 
     #region Public Methods
-
+    public void DealDamage(float damage)
+    {
+        playerCanvas.DealDamage(damage);
+    }
     #endregion
 }

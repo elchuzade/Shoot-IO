@@ -4,7 +4,7 @@ using static GlobalVariables;
 
 public class WearableItem : MonoBehaviour
 {
-    public Wearables itemName;
+    //public Wearables itemName;
 
     // Later this can be an array of particles instead of just a single particle
     // Each particle would end up having its own time to run
@@ -13,27 +13,27 @@ public class WearableItem : MonoBehaviour
     #region Public Methods
     public void RunIdleAnimation()
     {
-        if (itemName == Wearables.Cigar)
-        {
-            // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
-            transform.Find("Zippo").GetComponent<AnimationTrigger>().Trigger("Appear");
-            float startDelay = 2;
-            float stopDelay = 4;
-            StartParticles(startDelay);
-            StopParticles(stopDelay);
-        }
+        //    if (itemName == Wearables.Cigar)
+        //    {
+        //        // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
+        //        transform.Find("Zippo").GetComponent<AnimationTrigger>().Trigger("Appear");
+        //        float startDelay = 2;
+        //        float stopDelay = 4;
+        //        StartParticles(startDelay);
+        //        StopParticles(stopDelay);
+        //    }
     }
 
     public void StopIdleAnimation()
     {
-        if (itemName == Wearables.Cigar)
-        {
-            // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
-            Animator appearAnimator = transform.Find("Zippo").GetComponent<Animator>();
-            appearAnimator.Rebind();
+        //    if (itemName == Wearables.Cigar)
+        //    {
+        //        // This will trigger the chain of events. Time for fire particles to light and dim should be adjusted
+        //        Animator appearAnimator = transform.Find("Zippo").GetComponent<Animator>();
+        //        appearAnimator.Rebind();
 
-            StopParticles(0);
-        }
+        //        StopParticles(0);
+        //    }
     }
     #endregion
 
