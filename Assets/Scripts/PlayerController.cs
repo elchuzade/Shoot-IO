@@ -45,7 +45,7 @@ public class PlayerController : Character
     #endregion
 
     #region Public Methods
-    public void DealDamage(float damage)
+    public void DealDamage(int damage)
     {
         playerCanvas.DealDamage(damage);
     }

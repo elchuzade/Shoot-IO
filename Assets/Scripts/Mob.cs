@@ -15,11 +15,11 @@ public class Mob : MonoBehaviour
     [SerializeField] float observeTime;
 
     [SerializeField] Image hpLoader;
-    float minHP = 0;
+    int minHP = 0;
     float timerHP = 0;
-    public float maxHP = 100;
-    float currentHP;
-    public float regenHP = 1;
+    public int maxHP = 100;
+    int currentHP;
+    public int regenHP = 1;
     // This is to decide what color mob health will be for you from danger palette
     public PlayerRank mobRank;
     Color32 equalMob = new Color32(255, 255, 255, 255);
@@ -27,7 +27,7 @@ public class Mob : MonoBehaviour
     Color32 danger2Mob = new Color32(211, 93, 93, 255);
     Color32 danger3Mob = new Color32(177, 0, 0, 255);
 
-    public float giveXP;
+    public int giveXP;
 
     // To tell the spawner that it is dead, so instantiate a new one
     public Spawner spawner;
@@ -37,7 +37,7 @@ public class Mob : MonoBehaviour
     [SerializeField] float wanderRadius;
 
     int currentWaypointIndex = 0;
-    [SerializeField] float speed = 50f;
+    [SerializeField] int speed = 50;
 
     float time = 0;
     bool moving = false;
@@ -152,7 +152,7 @@ public class Mob : MonoBehaviour
     }
 
     #region Public Methods
-    public void DealDamage(float damage)
+    public void DealDamage(int damage)
     {
         currentHP -= damage;
         SetMobHP();

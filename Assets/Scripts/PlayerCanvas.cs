@@ -14,11 +14,11 @@ public class PlayerCanvas : MonoBehaviour
     [SerializeField] Image tpLoader;
 
     // To make the loader work
-    float maxXP;
+    int maxXP;
 
-    float maxHP;
+    int maxHP;
 
-    float regenHP = 10; // 1 hp per second
+    int regenHP = 10; // 1 hp per second
     float timerHP = 0;
 
     float resetTP = 10;
@@ -87,7 +87,7 @@ public class PlayerCanvas : MonoBehaviour
     }
 
     #region Public Methods
-    public void GiveXP(float xp)
+    public void GiveXP(int xp)
     {
         player.XP += xp;
         if (player.XP >= maxXP)
@@ -99,7 +99,7 @@ public class PlayerCanvas : MonoBehaviour
         SetPlayerRank();
     }
 
-    public void DealDamage(float damage)
+    public void DealDamage(int damage)
     {
         player.HP -= damage;
         if (player.HP <= 0)
@@ -164,7 +164,7 @@ public class PlayerCanvas : MonoBehaviour
 
     #region Private Methods
     // Methods that will take in rank and return xp that is needed to pass that rank and promote to the next one
-    float GetRankXP (PlayerRank rank)
+    int GetRankXP (PlayerRank rank)
     {
         switch (rank)
         {

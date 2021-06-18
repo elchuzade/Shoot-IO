@@ -1,17 +1,18 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class GlobalVariables : MonoBehaviour
 {
     // Change prefab colors too from materials for them
-    public Color32 basicColor = new Color32(183, 183, 183, 255);
-    public Color32 commonColor = new Color32(176, 29, 32, 255);
-    public Color32 uncommonColor = new Color32(50, 255, 10, 255);
-    public Color32 rareColor = new Color32(105, 50, 211, 255);
-    public Color32 epicColor = new Color32(107, 100, 5, 255);
-    public Color32 uniqueColor = new Color32(60, 5, 255, 255);
-    public Color32 legendaryColor = new Color32(100, 175, 150, 255);
-    public Color32 specialColor = new Color32(100, 5, 50, 255);
+    public static Color32 basicColor = new Color32(183, 183, 183, 255);
+    public static Color32 commonColor = new Color32(176, 29, 32, 255);
+    public static Color32 uncommonColor = new Color32(50, 255, 10, 255);
+    public static Color32 rareColor = new Color32(105, 50, 211, 255);
+    public static Color32 epicColor = new Color32(107, 100, 5, 255);
+    public static Color32 uniqueColor = new Color32(60, 5, 255, 255);
+    public static Color32 legendaryColor = new Color32(100, 175, 150, 255);
+    public static Color32 specialColor = new Color32(100, 5, 50, 255);
+
+    public enum StatTypes { Damage, FireRate, RegenHP, MaxHP };
 
     public enum MobMovementTypes { Patrol, Idle, Wander };
 
@@ -36,6 +37,23 @@ public class GlobalVariables : MonoBehaviour
     public enum TowerTypes { WoodTower, StoneTower, MetalTower };
     public enum WallTypes { WoodWall, StoneWall, MetalWall };
     public enum GateTypes { WoodGate, StoneGate, MetalGate };
+
+    public enum InventoryTabs
+    {
+        WeaponTab,
+        ArmorTab,
+        PotionTab,
+        SpecialTab,
+        EmojiTab
+    };
+
+    public enum Potions
+    {
+        XPPotion,
+        HPPotion,
+        SpeedPotion,
+        DamagePotion
+    };
 
     public enum KeyTypes
     {
@@ -189,7 +207,7 @@ public class GlobalVariables : MonoBehaviour
     public enum Emojies
     {
         AngryFace,
-        DisappointedDace,
+        DisappointedFace,
         FaceWithRaisedEyebrow,
         FaceWithTearsOfJoy,
         GrinningFace,
@@ -237,7 +255,7 @@ public class GlobalVariables : MonoBehaviour
         MinerHelmet,
         OfficerHat,
         RapCap,
-        RopeCap,
+        RopeBand,
         RussianHat,
         SportsBand,
         TennisHat,
